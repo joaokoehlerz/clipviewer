@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My clips</title>
+    <style>
+        .thumbnail {
+            width: 200px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>My clips</h1>
+    <div class="video-grid">
+        {% for video in videos %}
+            <div>
+                <a href="/videos/{{ video.filename }}" target="_blank">
+                    <img class="thumbnail" src="{{ url_for('static', filename=video.thumbnail) }}" alt="Video">
+                </a>
+                <p>{{ video.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
